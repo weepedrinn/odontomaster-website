@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Odonto Master | Clínica odontológica</title>
+<meta name="description" content="Odonto Master: avaliação, prevenção e tratamentos odontológicos com explicação clara em cada etapa. Agende sua consulta.">
+<script>if ("IntersectionObserver" in window) document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* CORES: para trocar o visual do site, edite os valores abaixo */
+:root{
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#0F3B22; --muted:#4E6B58;
+  --brand:#1F7A3E; --brand-ink:#FFFFFF; --mint:#FFFFFF; --line:#CCE3D2; --sun:#F2B84B;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1F14; --surface:#112B1B; --ink:#E3F2E7; --muted:#9CBFA7;
+    --brand:#5CCB7E; --brand-ink:#052612; --mint:#153A24; --line:#21472E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1F14; --surface:#112B1B; --ink:#E3F2E7; --muted:#9CBFA7;
+  --brand:#5CCB7E; --brand-ink:#052612; --mint:#153A24; --line:#21472E; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Figtree",system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:.75rem 1.5rem;flex-wrap:wrap;padding-block:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;font:700 1.3rem "Bricolage Grotesque",system-ui,sans-serif;text-decoration:none}
+.logo svg{width:26px;height:auto}
+nav a{margin-left:1.25rem;color:var(--muted);font-weight:500;text-decoration:none}
+nav a:hover{color:var(--ink)}
+
+.btn{display:inline-block;font:inherit;font-weight:600;background:var(--brand);color:var(--brand-ink);padding:.8rem 1.5rem;border:1.5px solid var(--brand);border-radius:999px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding-block:3rem 4.5rem}
+.hero h1{font-size:clamp(2.3rem,6vw,4rem)}
+.hero p{max-width:34rem;margin:1.25rem 0 1.75rem;color:var(--muted);font-size:1.15rem}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.art{justify-self:center;width:min(100%,360px);aspect-ratio:1;display:grid;place-items:center;background:var(--mint);border-radius:50% 50% 46% 54% / 55% 45% 55% 45%}
+.art svg{width:62%;height:auto;overflow:visible}
+.tooth{fill:var(--surface);stroke:var(--brand);stroke-width:5;stroke-linejoin:round;stroke-dasharray:1;animation:draw 1.8s ease-out both}
+@keyframes draw{from{stroke-dashoffset:1;fill-opacity:0}to{stroke-dashoffset:0;fill-opacity:1}}
+/* ANIMAÇÃO AO ROLAR: os itens começam invisíveis e sobem suavemente quando entram na tela */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.tooth{animation:none}html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}}
+
+section{padding-block:4rem}
+h2{font-size:clamp(1.75rem,4vw,2.5rem);max-width:30rem}
+.lead{max-width:38rem;color:var(--muted);margin:.9rem 0 0}
+
+.rows{margin-top:2rem;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:.5rem 2rem;padding:1.25rem 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:1.25rem}
+.row p{margin:0;color:var(--muted)}
+
+.band{background:var(--mint)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:2rem}
+.cols h3{font-size:1.2rem;margin-bottom:.4rem}
+.cols p{margin:0;color:var(--muted)}
+
+.book{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.hours{margin:1.5rem 0 0;padding:0;list-style:none;color:var(--muted)}
+.hours li{padding:.35rem 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem}
+form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+.field{display:grid;gap:.35rem;margin-bottom:1rem}
+label{font-weight:600;font-size:.95rem}
+input,select{font:inherit;width:100%;padding:.75rem .9rem;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+form .btn{width:100%}
+.note{margin:.75rem 0 0;font-size:.9rem;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);font-size:.95rem}
+footer .wrap{display:grid;gap:.4rem}
+
+@media (max-width:760px){
+  .hero,.book,.row{grid-template-columns:1fr}
+  .hero{padding-block:2rem 3rem}
+  .art{order:-1;width:min(70%,260px)}
+  nav a:first-child{margin-left:0}
+  section{padding-block:3rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Odonto Master, início">
+      <svg viewBox="0 0 200 220" aria-hidden="true"><path d="M100 20C80 8 40 10 30 45c-8 30 10 50 12 85 2 40 8 75 26 75 16 0 14-45 32-45s16 45 32 45c18 0 24-35 26-75 2-35 20-55 12-85C160 10 120 8 100 20Z" fill="none" stroke="currentColor" stroke-width="14" stroke-linejoin="round"/></svg>
+      Odonto Master
+    </a>
+    <nav aria-label="Principal">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#diferenciais">Como atendemos</a>
+      <a href="#agendar">Agendar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <h1>Cuidar do sorriso começa com uma boa conversa.</h1>
+      <p>Na Odonto Master, toda consulta começa com avaliação e uma explicação clara: o que foi encontrado, quais são as opções e quanto tempo cada uma leva.</p>
+      <div class="actions">
+        <a class="btn" href="#agendar">Agendar consulta</a>
+        <a class="btn ghost" href="#tratamentos">Ver tratamentos</a>
+      </div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 200 220">
+        <path class="tooth" pathLength="1" d="M100 20C80 8 40 10 30 45c-8 30 10 50 12 85 2 40 8 75 26 75 16 0 14-45 32-45s16 45 32 45c18 0 24-35 26-75 2-35 20-55 12-85C160 10 120 8 100 20Z"/>
+        <path d="M168 18v22M157 29h22" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <section id="tratamentos">
+    <div class="wrap">
+      <h2>Tratamentos para cada fase do sorriso</h2>
+      <p class="lead">Do check-up de rotina aos tratamentos mais complexos, tudo em um só lugar.</p>
+      <div class="rows">
+        <!-- Para adicionar um tratamento, copie um bloco "row" inteiro e troque o texto -->
+        <div class="row"><h3>Limpeza e prevenção</h3><p>Remoção de placa e tártaro, orientação de higiene e acompanhamento periódico para evitar problemas antes que apareçam.</p></div>
+        <div class="row"><h3>Clareamento dental</h3><p>Indicado após avaliação da saúde dos dentes e das gengivas, com opções de consultório e de uso em casa.</p></div>
+        <div class="row"><h3>Ortodontia</h3><p>Aparelhos fixos e alinhadores para corrigir o posicionamento dos dentes, de adolescentes a adultos.</p></div>
+        <div class="row"><h3>Implantes e próteses</h3><p>Reposição de dentes ausentes, com planejamento detalhado e exames antes de qualquer procedimento.</p></div>
+        <div class="row"><h3>Restaurações e canal</h3><p>Tratamento de cáries, fraturas e infecções para preservar o dente natural sempre que possível.</p></div>
+        <div class="row"><h3>Odontopediatria</h3><p>Atendimento para crianças, com abordagem tranquila e orientação aos pais sobre hábitos e higiene.</p></div>
+        <div class="row"><h3>Ortopedia funcional dos maxilares</h3><p>Acompanha o crescimento dos ossos da face, geralmente em crianças e adolescentes, para corrigir a posição dos maxilares e a mordida.</p></div>
+        <div class="row"><h3>Estética dental</h3><p>Facetas e restaurações estéticas para ajustar cor, formato e proporção dos dentes, após avaliação individual.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diferenciais" class="band">
+    <div class="wrap">
+      <h2>Como atendemos</h2>
+      <div class="cols">
+        <div><h3>Avaliação sem pressa</h3><p>Você tira todas as dúvidas antes de decidir qualquer tratamento.</p></div>
+        <div><h3>Plano por escrito</h3><p>Etapas, prazos e valores combinados antes de começar, sem surpresas no caminho.</p></div>
+        <div><h3>Ambiente seguro</h3><p>Instrumentais esterilizados e protocolos de biossegurança em todos os atendimentos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agendar">
+    <div class="wrap book">
+      <div>
+        <h2>Agende sua consulta</h2>
+        <p class="lead">Preencha os dados e continue a conversa pelo WhatsApp. Respondemos nos horários de atendimento.</p>
+        <ul class="hours">
+          <!-- Troque pelos horários reais da clínica -->
+          <li><span>Segunda a sexta</span><span>8h às 12h e 14h às 18h</span></li>
+          <li><span>Sábado</span><span>Fechado (somente emergências)</span></li>
+          <li><span>Domingo</span><span>Fechado (somente emergências)</span></li>
+        </ul>
+      </div>
+      <form id="agendar-form">
+        <div class="field"><label for="nome">Seu nome</label><input id="nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required></div>
+        <div class="field">
+          <label for="trat">Tratamento de interesse</label>
+          <select id="trat" name="trat">
+            <option>Consulta</option>
+            <option>Limpeza e prevenção</option>
+            <option>Clareamento dental</option>
+            <option>Ortodontia</option>
+            <option>Implantes e próteses</option>
+            <option>Restaurações e canal</option>
+            <option>Odontopediatria</option>
+            <option>Ortopedia funcional dos maxilares</option>
+            <option>Estética dental</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+        <p class="note">Ao enviar, o WhatsApp abre com a mensagem pronta.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Odonto Master</strong>
+    <span>Avenida Pedro Alves Teixeira, Inhumas, Goiás</span>
+    <span>Telefone: <a href="tel:+556235144117">(62) 3514-4117</a></span>
+    <span>Responsável técnico: Dr. Rodrigo Pereira Costa, CRO-GO 7577</span>
+  </div>
+</footer>
+
+<script>
+// Troque pelo número da clínica, com código do país e DDD, só números. Ex.: 5561999999999
+var NUMERO_WHATSAPP = "5562983438358";
+
+// ARTIGO de cada tratamento na mensagem ("uma consulta", "um clareamento dental"...)
+// Se adicionar um tratamento novo no formulário, inclua ele aqui também.
+var ARTIGOS = {
+  "Consulta": "uma",
+  "Limpeza e prevenção": "uma",
+  "Clareamento dental": "um",
+  "Ortodontia": "uma",
+  "Implantes e próteses": "um tratamento de",
+  "Restaurações e canal": "um tratamento de",
+  "Odontopediatria": "uma",
+  "Ortopedia funcional dos maxilares": "uma",
+  "Estética dental": "uma"
+};
+
+document.getElementById("agendar-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var nome = document.getElementById("nome").value.trim();
+  var trat = document.getElementById("trat").value;
+  var artigo = ARTIGOS[trat] || "um";
+  var msg = "Olá, meu nome é " + nome + " e eu quero agendar com vocês, da Odonto Master, " + artigo + " " + trat.toLowerCase() + ".";
+  window.open("https://wa.me/" + NUMERO_WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+});
+
+// ANIMAÇÃO AO ROLAR: cada item aparece quando entra na tela e some quando sai, então anima de novo a cada passagem
+if ("IntersectionObserver" in window) {
+  var alvos = document.querySelectorAll(".hero > div:first-child, section h2, .lead, .row, .cols > div, .hours, form, footer .wrap");
+  var observador = new IntersectionObserver(function (itens) {
+    itens.forEach(function (item) {
+      if (item.intersectionRatio >= 0.15) {
+        item.target.classList.add("show");
+      } else if (item.intersectionRatio === 0) {
+        // só "zera" a animação quando o item saiu da tela por completo
+        item.target.classList.remove("show");
+      }
+    });
+  }, { threshold: [0, 0.15] });
+  alvos.forEach(function (el) {
+    el.classList.add("reveal");
+    el.style.transitionDelay = (Math.min(Array.prototype.indexOf.call(el.parentNode.children, el), 5) * 70) + "ms";
+    observador.observe(el);
+  });
+}
+</script>
+</body>
+</html>
