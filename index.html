@@ -80,6 +80,13 @@ input,select{font:inherit;width:100%;padding:.75rem .9rem;border:1.5px solid var
 form .btn{width:100%}
 .note{margin:.75rem 0 0;font-size:.9rem;color:var(--muted)}
 
+/* MAPA: para mudar o local, troque o endereço no link do iframe (no HTML) */
+.mapa{margin-top:2rem;border:1px solid var(--line);border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:var(--surface)}
+.mapa iframe{display:block;width:100%;height:100%;border:0}
+.mapa + p{margin:1.25rem 0 0;color:var(--muted)}
+.mapa + p + p{margin:.75rem 0 0}
+@media (max-width:760px){.mapa{aspect-ratio:4/3}}
+
 footer{border-top:1px solid var(--line);padding-block:2rem;color:var(--muted);font-size:.95rem}
 footer .wrap{display:grid;gap:.4rem}
 
@@ -152,6 +159,19 @@ footer .wrap{display:grid;gap:.4rem}
         <div><h3>Plano por escrito</h3><p>Etapas, prazos e valores combinados antes de começar, sem surpresas no caminho.</p></div>
         <div><h3>Ambiente seguro</h3><p>Instrumentais esterilizados e protocolos de biossegurança em todos os atendimentos.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="localizacao">
+    <div class="wrap">
+      <h2>Onde estamos</h2>
+      <p class="lead">Avenida Pedro Alves Teixeira, Inhumas, Goiás.</p>
+      <!-- MAPA: para mudar o local, cole o link do Google Maps (Compartilhar > Incorporar um mapa) no src do iframe e atualize o "query=" do botão abaixo -->
+      <div class="mapa">
+        <iframe title="Mapa com a localização da Odonto Master" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245000.12733905125!2d-49.66349022187501!3d-16.367492199999987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935e7842bfdcb699%3A0x6faadc3c495bebf2!2sOdonto%20Master!5e0!3m2!1spt-BR!2sbr!4v1795312880831!5m2!1spt-BR!2sbr" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p>Não esqueça de avaliar a Odonto Master no Google Maps depois da sua visita. Sua opinião ajuda outros pacientes.</p>
+      <p><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Odonto+Master+Inhumas+Goi%C3%A1s" target="_blank" rel="noopener">Abrir no Google Maps</a></p>
     </div>
   </section>
 
@@ -229,7 +249,7 @@ document.getElementById("agendar-form").addEventListener("submit", function (e) 
 
 // ANIMAÇÃO AO ROLAR: cada item aparece quando entra na tela e some quando sai, então anima de novo a cada passagem
 if ("IntersectionObserver" in window) {
-  var alvos = document.querySelectorAll(".hero > div:first-child, section h2, .lead, .row, .cols > div, .hours, form, footer .wrap");
+  var alvos = document.querySelectorAll(".hero > div:first-child, section h2, .lead, .row, .cols > div, .hours, .mapa, form, footer .wrap");
   var observador = new IntersectionObserver(function (itens) {
     itens.forEach(function (item) {
       if (item.intersectionRatio >= 0.15) {
